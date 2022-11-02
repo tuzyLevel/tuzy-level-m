@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { gameObject } from "../GameObject/GameObject";
 import classes from "./GameBoard.module.css";
 
 const DUMMY_BOARD: Array<number[]> = [];
@@ -24,6 +25,7 @@ const GameBoard = () => {
       console.log("ArrowDown");
     } else if (event.key === "ArrowLeft") {
       console.log("ArrowLeft");
+      console.log(new gameObject([0, 0], 1, 1));
     }
   };
 
