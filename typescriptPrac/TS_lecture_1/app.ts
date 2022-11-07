@@ -1,8 +1,7 @@
-function add(n1: number, n2: number) {
-  return n1 + n2;
+let userInput: unknown;
+
+userInput = 10;
+
+function generateError(msg: string, code: number): never {
+  throw { msg: msg, code: code };
 }
-
-let combineValues: (a: number, b: number) => number;
-
-combineValues = add;
-console.log(combineValues(8, 8));

@@ -1,0 +1,54 @@
+.modal_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal_container * {
+  font-size: 1.5rem;
+}
+
+.form {
+  width: 600px;
+  height: 400px;
+  text-align: center;
+  z-index: 1;
+  border-radius: 30px;
+  background-color: ivory;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_element {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+}
+
+.form_buttons {
+  justify-content: flex-end;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.form_buttons button[type="submit"] {
+  background-color: white;
+}
+
+.form_buttons button[type="button"] {
+  background-color: gray;
+}

@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { io, Socket } from "socket.io-client";
+import WrapContainer from "../components/container/WrapContainer";
+import Navbar from "../components/Navbar/Navbar";
 
 interface roomSchema {
   title: string;
@@ -54,19 +56,22 @@ const Room = () => {
   };
   console.log(msg);
   return (
-    <div>
-      <form>
-        <input type="text" placeholder="하고싶은 말 입력" ref={msgRef} />
-        <button type="submit" onClick={msgTransferHandler}>
-          전송
-        </button>
-        <ul>
-          {msg.map((m) => (
-            <li key={Math.random().toString()}>{m}</li>
-          ))}
-        </ul>
-      </form>
-    </div>
+    <WrapContainer>
+      <Navbar />
+      <div>
+        <form>
+          <input type="text" placeholder="하고싶은 말 입력" ref={msgRef} />
+          <button type="submit" onClick={msgTransferHandler}>
+            전송
+          </button>
+          <ul>
+            {msg.map((m) => (
+              <li key={Math.random().toString()}>{m}</li>
+            ))}
+          </ul>
+        </form>
+      </div>
+    </WrapContainer>
   );
 };
 
