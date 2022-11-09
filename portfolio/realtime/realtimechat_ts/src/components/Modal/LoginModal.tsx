@@ -1,10 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-import Card from "../Card/Card";
 import classes from "./LoginModal.module.css";
 interface LoginModalProps extends React.PropsWithChildren {}
 
 const LoginModal: React.FC<LoginModalProps> = (props) => {
+  const navigation = useNavigate();
+  const registerBtnClickHandler = () => {
+    navigation("/register");
+  };
+
   return (
     <div className={classes.modal_container}>
       <form className={classes.form}>
@@ -17,7 +22,11 @@ const LoginModal: React.FC<LoginModalProps> = (props) => {
           <input type="password" name="pwd" id="pwd" />
         </div>
         <div className={` ${classes.form_element} ${classes.form_buttons}`}>
-          <button type="button" id="registerBtn">
+          <button
+            type="button"
+            id="registerBtn"
+            onClick={registerBtnClickHandler}
+          >
             회원가입
           </button>
           <button type="submit" id="loginBtn">

@@ -5,7 +5,7 @@
   transform: translate(-50%, -50%);
 }
 .modal_container * {
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
 }
 
 .form {
@@ -33,22 +33,22 @@
   justify-content: flex-end;
 }
 
-input {
+.form_element input {
   width: 300px;
   height: 30px;
 }
 
-button {
+.form_buttons button {
   width: 100px;
   height: 40px;
   margin-left: 20px;
   border-radius: 5px;
 }
 
-.form_buttons button[type="submit"] {
+.form_buttons > button[type="submit"] {
   background-color: white;
 }
 
-.form_buttons button[type="button"] {
+.form_buttons > button[type="button"] {
   background-color: gray;
 }

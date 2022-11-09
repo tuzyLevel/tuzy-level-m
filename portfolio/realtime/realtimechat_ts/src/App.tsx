@@ -1,10 +1,9 @@
-import React, { Fragment } from "react";
-import { io, Socket } from "socket.io-client";
 import Main from "./views/Main";
-import Chat from "./views/Chat";
+
 import Room from "./views/Room";
+import Register from "./views/Register";
 import "./App.css";
-import ModalPortal from "./components/Modal/ModalPortal";
+
 import { Routes, Route } from "react-router-dom";
 
 interface ServerToClientEvents {
@@ -29,8 +28,9 @@ interface SocketData {
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Main />}></Route>
+      <Route path="/" element={<Main />} />
       <Route path="/room" element={<Room />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   );
 }
