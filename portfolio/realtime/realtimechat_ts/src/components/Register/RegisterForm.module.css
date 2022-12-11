@@ -43,6 +43,8 @@
   margin: 0px 20px;
 }
 
-.input_alert {
-  border: 1px solid red;
+.invalid_input {
+  border: 2px solid red;
+  background-color: pink;
+  opacity: 0.5;
 }

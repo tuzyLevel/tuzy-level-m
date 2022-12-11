@@ -1,7 +1,9 @@
-import React from "react";
+import { useContext } from "react";
+import { LoginContext } from "../../context/LoginContext";
 import classes from "./Navbar.module.css";
 
 const Navbar = () => {
+  const loginCtx = useContext(LoginContext);
   return (
     <div className={classes.navbar}>
       <div className={classes.title}>
@@ -11,9 +13,9 @@ const Navbar = () => {
       </div>
       <div className={classes.menues}>
         <div className={`${classes.menues_menu} ${classes.login} `}>
-          <a href="/login">
+          <div onClick={loginCtx.toggleLoginTriggered}>
             <h2>Login</h2>
-          </a>
+          </div>
         </div>
         <div className={`${classes.menues_menu} ${classes.friends_list}`}>
           <a href="/friends">

@@ -11,7 +11,7 @@ const connect = () => {
         mongoose_1.default.set("debug", true);
     }
     mongoose_1.default.connect(MONGO_URL, {
-        dbName: "nodejs",
+        dbName: "realchatDB",
     }, (error) => {
         if (error)
             console.log("몽고디비 연결 에러", error);

@@ -1,5 +1,4 @@
-import { Fragment, useEffect } from "react";
-import { io } from "socket.io-client";
+import { Fragment } from "react";
 
 const Chat = () => {
   return (

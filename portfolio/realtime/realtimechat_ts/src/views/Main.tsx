@@ -1,40 +1,47 @@
-import React, { Fragment, useState } from "react";
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
 
 import WrapContainer from "../components/container/WrapContainer";
 import Navbar from "../components/Navbar/Navbar";
 import ModalPortal from "../components/Modal/ModalPortal";
 import LoginModal from "../components/Modal/LoginModal";
+import LoginContextProvider from "../context/LoginContext";
 
 const Main: React.FC = (props) => {
   const [isLogin, setIsLogin] = useState(false);
+  const [isLoginTriggered, setIsLoginTriggered] = useState(false);
+  const [sessionId, setSessionId] = useState("");
+  const loginHandler = (sId: string) => {
+    setIsLogin(true);
+    setSessionId(sId);
+  };
+  const logoutHandler = () => {
+    setIsLogin(false);
+    setSessionId("");
+  };
+  const toggleLoginTriggered = () => {
+    setIsLoginTriggered((prev) => !prev);
+  };
 
   return (
-    <WrapContainer>
-      {!isLogin && (
-        <ModalPortal>
-          <LoginModal />
-        </ModalPortal>
-      )}
-      <Navbar />
-      <h1>GIF 채팅방</h1>
-      <fieldset>
-        <legend>채팅방 목록</legend>
-        <table>
-          <thead>
-            <tr>
-              <th>방 제목</th>
-              <th>종류</th>
-              <th>허용 인원</th>
-              <th>방장</th>
-            </tr>
-          </thead>
-          <tbody>{}</tbody>
-        </table>
-        <div className="error-message">{}</div>
-        <a href="/room">채팅방 생성</a>
-      </fieldset>
-    </WrapContainer>
+    <LoginContextProvider
+      loginState={{
+        isLogin,
+        isLoginTriggered,
+        sessionId,
+        loginHandler,
+        logoutHandler,
+        toggleLoginTriggered,
+      }}
+    >
+      <WrapContainer>
+        {!isLogin && isLoginTriggered && (
+          <ModalPortal>
+            <LoginModal />
+          </ModalPortal>
+        )}
+        <Navbar />
+      </WrapContainer>
+    </LoginContextProvider>
   );
 };
 
