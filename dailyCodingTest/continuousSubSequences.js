@@ -23,4 +23,4 @@ function solution(elements) {
   return subSequence(elements);
 }
 
-console.log(solution([7, 9, 1, 1, 4]));
+console.log(solution([7, 9, 1, 1, 4, 5]));
