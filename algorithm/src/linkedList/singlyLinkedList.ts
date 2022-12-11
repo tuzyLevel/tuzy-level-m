@@ -17,7 +17,7 @@ export namespace LinkedList {
       descriptor.value = function (...args: any[]) {
         console.log("logging...");
         originalMethod.apply(this, args);
-        if (this !== undefined) console.log(this.get());
+        if (this !== undefined) console.log();
       };
     };
   }
